@@ -43,11 +43,6 @@ IMAGE_INSTALL_append_jetson-tx2 = " \
     tegra186-flash-dry \
     parted \
     gptfdisk \
-    tegra-firmware-brcm \
-    tegra-brcm-patchram \
-    bluez5 \
-    bt-scripts \
-    linux-firmware-bcm4354 \
     fan-startup \
     tegra-nvpmodel \
     tegra-configs-nvstartup \
