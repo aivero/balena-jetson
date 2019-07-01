@@ -15,13 +15,25 @@ RESIN_CONFIGS[tegra-wdt-t21x] = " \
     CONFIG_TEGRA21X_WATCHDOG=m \
 "
 
-RESIN_CONFIGS_append = " fatconfig"
-
-RESIN_CONFIGS[fatconfig] = " \
-    CONFIG_MSDOS_FS=y \
-    CONFIG_VFAT_FS=y \
-    CONFIG_NLS_ASCII=y \
-    CONFIG_NLS_CODEPAGE_437=y \
+# Switch some default built-in tegra configs
+# to modules to shrink kernel below
+# 40MB
+RESIN_CONFIGS_append = " unused"
+RESIN_CONFIGS[unused] = " \
+    CONFIG_AUTOFS4_FS=m \
+    CONFIG_EXT3_FS=m \
+    CONFIG_NETWORK_FILESYSTEMS=m \
+    CONFIG_NFS_FS=m \
+    CONFIG_NFS_V2=m \
+    CONFIG_NFS_V3=m \
+    CONFIG_ROOT_NFS=n \
+    CONFIG_NFSD_V2_ACL=n \
+    CONFIG_NFSD_V3=n \
+    CONFIG_NFSD_V3_ACL=n \
+    CONFIG_HAVE_DEBUG_KMEMLEAK=n \
+    CONFIG_DEBUG_KMEMLEAK=n \
+    CONFIG_DEBUG_KMEMLEAK_DEFAULT_OFF=y \
+    CONFIG_DEBUG_KMEMLEAK_SCAN_ON=n \
 "
 
 KERNEL_ROOTSPEC_jetson-nano = "\${resin_kernel_root} ro rootwait"
