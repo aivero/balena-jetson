@@ -17,3 +17,11 @@ SRC_URI_append_jetson-nano = " \
 SRC_URI_append_jetson-tx2 = " \
     file://tx2-Integrate-with-Balena-u-boot-environment.patch \
 "
+
+generate_resinos_uenv_flasher() {
+cat >${DEPLOY_DIR_IMAGE}/boot/resinOS_uEnv.flasher.txt << EOF
+l4t_version=321
+EOF
+}
+
+do_install[postfuncs] += "generate_resinos_uenv_flasher"
