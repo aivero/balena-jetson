@@ -34,7 +34,7 @@ RESIN_BOOT_PARTITION_FILES_jetson-tx2 = " \
 IMAGE_ROOTFS_SIZE = "487424"
 
 RESIN_BOOT_SIZE_jetson-nano = "80960"
-RESIN_BOOT_SIZE_jetson-tx2="101440"
+RESIN_BOOT_SIZE_jetson-tx2="80960"
 
 PARTITION_TABLE_TYPE = "gpt"
 
@@ -52,4 +52,5 @@ IMAGE_INSTALL_append_jetson-tx2 = " \
     linux-firmware-bcm4354 \
     bluez5 \
     bt-scripts \
+    tegra-firmware-xusb \
 "
