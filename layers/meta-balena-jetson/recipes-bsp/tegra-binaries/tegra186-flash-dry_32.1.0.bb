@@ -211,12 +211,16 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 do_install[nostamp] = "1"
+do_compile[nostamp] = "1"
 do_deploy[nostamp] = "1"
 do_configure[nostamp] = "1"
 
-
 do_configure[depends] += "tegra-binaries:do_preconfigure"
-do_compile[depends] += "virtual/kernel:do_deploy"
+do_compile[depends] += " \
+    virtual/kernel:do_deploy \
+    virtual/bootloader:do_install \
+"
+
 do_install[depends] += "virtual/kernel:do_deploy"
 do_populate_lic[depends] += "tegra-binaries:do_unpack"
 
