@@ -1,6 +1,28 @@
 Change log
 -----------
 
+# v2.41.0+rev1
+## (2019-08-26)
+
+* linux-tegra: Port patches from old TX2 repository [Alexandru Costache]
+
+<details>
+<summary> Update the meta-balena submodule from v2.39.0 to v2.41.0 [Alexandru Costache] </summary>
+
+> ## meta-balena-2.41.0
+> ### (2019-08-22)
+> 
+> * Fix a hang in initramfs for warrior production images [Zubair Lutfullah Kakakhel]
+> * Update balena-engine to 18.09.8 [Robert Günzler]
+> * Avoid overlayfs mounts in poky's volatile-binds [Andrei Gherzan]
+
+> ## meta-balena-2.40.0
+> ### (2019-08-14)
+> 
+> * Update balena-supervisor to v10.2.2 [Cameron Diver]
+> * Workaround for a cornercase bug in PersistentLogging where journalctl filled the state partition. Vacuum the journal on boot. [Zubair Lutfullah Kakakhel]
+</details>
+
 # v2.39.0+rev1
 ## (2019-08-12)
 

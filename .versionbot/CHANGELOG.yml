@@ -1,4 +1,146 @@
 - commits:
+    - subject: 'linux-tegra: Port patches from old TX2 repository'
+      hash: 54631f5b2e96f0471d2a472268190b72e55c806f
+      body: |
+        Brought in kernel patches existing in the old repository
+        and rebased the ones below to apply and work on kernel
+        4.9 as some of the functions already exists here.
+
+        Rebased or ported patches:
+        - 0001-Expose-spidev-to-the-userspace.patch
+        - 0001-Support-referencing-the-root-partition-label-from-GP.patch
+        - 0001-mttcan_ivc-Fix-build-failure-with-kernel-4.9.patch
+        - 0001-revert-random-fix-crng_ready-test.patch
+        - 0002-mttcan-ivc-enable.patch
+        - 0002-qmi_wwan-Update-from-4.14-kernel.patch
+        - realsense_metadata_linux-yocto_4.4.patch
+      footer:
+        Changelog-entry: 'linux-tegra: Port patches from old TX2 repository'
+        changelog-entry: 'linux-tegra: Port patches from old TX2 repository'
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: Update the meta-balena submodule from v2.39.0 to v2.41.0
+      hash: 3c0d6ff7d38553542dc3a72123befcb24bd087b7
+      body: |
+        Update meta-balena from 2.39.0 to 2.41.0
+      footer:
+        Changelog-entry: Update the meta-balena submodule from v2.39.0 to v2.41.0
+        changelog-entry: Update the meta-balena submodule from v2.39.0 to v2.41.0
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+      nested:
+        - commits:
+            - subject: Fix a hang in initramfs for warrior production images
+              hash: 4c44265a7dd13760a89c235068500bf6f315f651
+              body: >
+                When `console=null` is passed in the kernel cmdline for
+                production
+
+                images, the system doesn't boot. Traced to initramfs not
+                starting any
+
+                process such as udev with the right file descripters for 0,1,2
+
+
+                Add workaround for that issue. This got exposed with a systemd
+                bump.
+
+                More details here
+                https://github.com/systemd/systemd/issues/13332
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Fix a hang in initramfs for warrior production images
+                changelog-entry: Fix a hang in initramfs for warrior production images
+                Signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+                signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+              author: Zubair Lutfullah Kakakhel
+            - subject: Update balena-engine to 18.09.8
+              hash: 9bcd0ffcc7d6efde45f2bc1eaeaafe1092374c40
+              body: |
+                Includes improvements and fixes to the journald logdriver
+              footer:
+                Change-type: minor
+                change-type: minor
+                Changelog-entry: Update balena-engine to 18.09.8
+                changelog-entry: Update balena-engine to 18.09.8
+                Signed-off-by: Robert Günzler <robertg@balena.io>
+                signed-off-by: Robert Günzler <robertg@balena.io>
+              author: Robert Günzler
+            - subject: Avoid overlayfs mounts in poky's volatile-binds
+              hash: b7b6163d955a3bf76a1759b60ed82ccc5fcce6d0
+              body: >
+                Our root filesystem is overlayfs or aufs. When latter, the
+                system
+
+                crashes when reading a lower directory file. We avoid this by
+                always
+
+                falling back to copy and mount (as if overlayfs is not
+                available).
+
+
+                Fixes #1618
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Avoid overlayfs mounts in poky's volatile-binds
+                changelog-entry: Avoid overlayfs mounts in poky's volatile-binds
+                Signed-off-by: Andrei Gherzan <andrei@balena.io>
+                signed-off-by: Andrei Gherzan <andrei@balena.io>
+              author: Andrei Gherzan
+          version: meta-balena-2.41.0
+          date: 2019-08-22T14:25:04.139Z
+        - commits:
+            - subject: Update balena-supervisor to v10.2.2
+              hash: 3afbe138f115fa15611cb823caa6664dbb093a8b
+              body: ''
+              footer:
+                Changelog-entry: Update balena-supervisor to v10.2.2
+                changelog-entry: Update balena-supervisor to v10.2.2
+                Change-type: minor
+                change-type: minor
+                Signed-off-by: Cameron Diver <cameron@balena.io>
+                signed-off-by: Cameron Diver <cameron@balena.io>
+              author: Cameron Diver
+            - subject: >-
+                Workaround for a cornercase bug in PersistentLogging where
+                journalctl filled the state partition. Vacuum the journal on
+                boot.
+              hash: 8284da08f245ed6da8308d558bb8dfcc66de9691
+              body: >
+                We have found a rare corner case bug where the journal bloats
+                beyond
+
+                its limit and fills the state partition. Triggering a vacuum on
+                reboot
+
+                helps a bit in case the device is restarted to recover its
+                function.
+
+
+                Fixes #1423
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: >-
+                  Workaround for a cornercase bug in PersistentLogging where
+                  journalctl filled the state partition. Vacuum the journal on
+                  boot.
+                changelog-entry: >-
+                  Workaround for a cornercase bug in PersistentLogging where
+                  journalctl filled the state partition. Vacuum the journal on
+                  boot.
+                Signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+                signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+              author: Zubair Lutfullah Kakakhel
+          version: meta-balena-2.40.0
+          date: 2019-08-14T09:40:49.562Z
+  version: 2.41.0+rev1
+  date: 2019-08-26T08:26:16.947Z
+- commits:
     - subject: Add support for TX2 on l4t 32.2
       hash: d464801108d04206d5d3dbc7f4366285568f53b2
       body: |
