@@ -17,6 +17,11 @@ SRC_URI_append = " \
     file://0001-Support-referencing-the-root-partition-label-from-GP.patch \
     file://xhci-ring-Don-t-show-incorrect-WARN-message-about.patch \
 "
+
+SRC_URI_append_jetson-xavier-nx-devkit = " \
+    file://l4t_32_4_4_dtb_patchfile.patch \
+"
+
 SRC_URI_append_jetson-tx2 = " \
     file://0001-Expose-spidev-to-the-userspace.patch \
     file://0002-mttcan-ivc-enable.patch \
