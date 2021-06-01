@@ -23,6 +23,7 @@ DTBFILE_photon-xavier-nx = "tegra194-xavier-nx-cti-NGX003.dtb"
 DTBNAME_cti-rogue-xavier="tegra194-agx-cti-AGX101"
 DTBNAME_jetson-xavier="tegra194-p2888-0001-p2822-0000"
 DTBNAME_jetson-xavier-seeed-hat="tegra194-p3668-all-p3509-0000-seeed-hat"
+DTBNAME_jetson-xavier-nx-devkit="tegra194-p3668-all-p3509-0000-seeed-hat"
 DTBNAME_nru120s-xavier="NRU120-32-4-3"
 
 # Name update files as partition names for easier updating

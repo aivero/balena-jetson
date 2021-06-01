@@ -18,9 +18,9 @@ SRC_URI_append = " \
     file://xhci-ring-Don-t-show-incorrect-WARN-message-about.patch \
 "
 
-SRC_URI_append_jetson-xavier-nx-devkit = " \
-    file://l4t_32_4_4_dtb_patchfile.patch \
-"
+#SRC_URI_append_jetson-xavier-nx-devkit = " \
+#    file://l4t_32_4_4_dtb_patchfile.patch \
+#"
 
 SRC_URI_append_jetson-tx2 = " \
     file://0001-Expose-spidev-to-the-userspace.patch \
@@ -37,6 +37,10 @@ SRC_URI_append_jetson-tx2 = " \
 "
 
 SRC_URI_append_jetson-xavier-seeed-hat = " \
+    file://tegra194-p3668-all-p3509-0000-seeed-hat.dtb \
+"
+
+SRC_URI_append_jetson-xavier-nx-devkit = " \
     file://tegra194-p3668-all-p3509-0000-seeed-hat.dtb \
 "
 
@@ -322,6 +326,10 @@ do_deploy_append_n310-tx2() {
 }
 
 do_deploy_append_jetson-xavier-seeed-hat() {
+    cp ${WORKDIR}/tegra194-p3668-all-p3509-0000-seeed-hat.dtb "${DEPLOYDIR}"
+}
+
+do_deploy_append_jetson-xavier-nx-devkit() {
     cp ${WORKDIR}/tegra194-p3668-all-p3509-0000-seeed-hat.dtb "${DEPLOYDIR}"
 }
 
