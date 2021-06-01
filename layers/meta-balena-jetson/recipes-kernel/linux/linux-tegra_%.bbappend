@@ -32,7 +32,7 @@ SRC_URI_append_jetson-tx2 = " \
 "
 
 SRC_URI_append_jetson-xavier-seeed-hat = " \
-    file://tegra194-p3668-all-p3509-0000-full-seeed-2mic-with-leds.dtb \
+    file://tegra194-p3668-all-p3509-0000-seeed-hat.dtb \
 "
 
 SRC_URI_append_cti-rogue-xavier = " \
@@ -317,7 +317,7 @@ do_deploy_append_n310-tx2() {
 }
 
 do_deploy_append_jetson-xavier-seeed-hat() {
-    cp ${WORKDIR}/tegra194-p3668-all-p3509-0000-full-seeed-2mic-with-leds.dtb "${DEPLOYDIR}"
+    cp ${WORKDIR}/tegra194-p3668-all-p3509-0000-seeed-hat.dtb "${DEPLOYDIR}"
 }
 
 do_deploy_append_blackboard-tx2() {
